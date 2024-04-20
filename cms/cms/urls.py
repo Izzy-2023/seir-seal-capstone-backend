@@ -15,6 +15,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+# urls.py
+
 from django.contrib import admin
 from django.urls import path
 from django.views.decorators.csrf import csrf_exempt
