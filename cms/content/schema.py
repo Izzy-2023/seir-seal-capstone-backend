@@ -1,22 +1,21 @@
-# schema.py
-
 import graphene
 from graphene_django.types import DjangoObjectType
-from .models import Article  # Ensure this import is correct
+from .models import Article
 
 class ArticleType(DjangoObjectType):
     class Meta:
         model = Article
+        fields = ('id', 'title', 'body', 'published_date', 'updated_date')
 
 class Query(graphene.ObjectType):
-    articles = graphene.List(ArticleType)
     article = graphene.Field(ArticleType, id=graphene.Int(required=True))
-
-    def resolve_articles(self, info):
-        return Article.objects.all()
+    articles = graphene.List(ArticleType)
 
     def resolve_article(self, info, id):
         return Article.objects.get(pk=id)
+
+    def resolve_articles(self, info):
+        return Article.objects.all().order_by('-updated_date', '-published_date')
 
 class CreateArticle(graphene.Mutation):
     class Arguments:
@@ -68,5 +67,6 @@ class Mutation(graphene.ObjectType):
     update_article = UpdateArticle.Field()
     delete_article = DeleteArticle.Field()
 
-schema = graphene.Schema(query=Query, mutation=Mutation)
 
+
+schema = graphene.Schema(query=Query, mutation=Mutation)
