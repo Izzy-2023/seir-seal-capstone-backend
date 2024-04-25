@@ -33,7 +33,7 @@ SECRET_KEY = 'django-insecure-pfr+)qsxyqc9no&5j2=@esc%#kk^+n(6&l3o0o%v^alpt(_m*8
 DEBUG = True
 
 # ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost', cast=lambda v: [s.strip() for s in v.split(',')])
-ALLOWED_HOSTS = ['.onrender.com']
+ALLOWED_HOSTS = ['cms-backend-toox.onrender.com']
 
 # Configure which origins are allowed
 CORS_ALLOWED_ORIGINS = [
