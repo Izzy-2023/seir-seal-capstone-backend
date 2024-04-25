@@ -65,9 +65,13 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost', cast=lambda v: [s.strip() for s in v.split(',')])
+ALLOWED_HOSTS = ['.onrender.com']
+
 # Configure which origins are allowed
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # Allow your frontend domain
+    'https://seir-seal-capstone-frontend.vercel.app/'
 ]
 
 ROOT_URLCONF = 'cms.urls'
