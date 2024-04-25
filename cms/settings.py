@@ -32,7 +32,14 @@ SECRET_KEY = 'django-insecure-pfr+)qsxyqc9no&5j2=@esc%#kk^+n(6&l3o0o%v^alpt(_m*8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost', cast=lambda v: [s.strip() for s in v.split(',')])
+ALLOWED_HOSTS = ['.onrender.com']
+
+# Configure which origins are allowed
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # Allow your frontend domain
+    'https://seir-seal-capstone-frontend.vercel.app/'
+]
 
 
 # Application definition
@@ -63,15 +70,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-]
-
-# ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost', cast=lambda v: [s.strip() for s in v.split(',')])
-ALLOWED_HOSTS = ['.onrender.com']
-
-# Configure which origins are allowed
-CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',  # Allow your frontend domain
-    'https://seir-seal-capstone-frontend.vercel.app/'
 ]
 
 ROOT_URLCONF = 'cms.urls'
