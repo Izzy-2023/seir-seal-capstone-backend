@@ -38,7 +38,7 @@ ALLOWED_HOSTS = ['cms-backend-toox.onrender.com']
 # Configure which origins are allowed
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',  # Allow your frontend domain
-    'https://seir-seal-capstone-frontend.vercel.app/'
+    'https://seir-seal-capstone-frontend.vercel.app'
 ]
 
 
