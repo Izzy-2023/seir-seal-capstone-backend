@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-pfr+)qsxyqc9no&5j2=@esc%#kk^+n(6&l3o0o%v^alpt(_m*8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost', cast=lambda v: [s.strip() for s in v.split(',')])
 ALLOWED_HOSTS = ['cms-backend-toox.onrender.com']
